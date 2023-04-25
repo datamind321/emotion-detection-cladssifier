@@ -10,4 +10,6 @@ streamlit
 streamlit_webrtc 
 tensorflow==2.12.0
 tensorflow_intel
+aiortc==1.0.0
+
 
