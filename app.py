@@ -240,7 +240,7 @@ def main():
 		RTC_CONFIGURATION = RTCConfiguration(
                  {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
                 )
-		webrtc_streamer(key="WYH",rtc_configuration=RTC_CONFIGURATION,media_stream_constraints={"video": True, "audio": False},video_processor_factory=VideoTransformer,async_processing=True)  
+		webrtc_streamer(key="WYH",mode=WebRtcMode.SENDRECV,rtc_configuration=RTC_CONFIGURATION,media_stream_constraints={"video": True, "audio": False},video_processor_factory=VideoTransformer,async_processing=False)  
 
 	elif choice=="About":
 		st.write("This Application Developed by DataMind Platform 2.0") 
