@@ -9,9 +9,7 @@ import time
 from bokeh.models.widgets import Div
 from keras.utils import img_to_array
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-import win32com.client
-import pythoncom
-speaker = win32com.client.Dispatch("SAPI.SpVoice",pythoncom.CoInitialize())   
+
 
 
 
@@ -177,36 +175,36 @@ def main():
 
 					if prediction == 'Happy':
 						st.subheader("YeeY!  You are Happy :smile: today , Always Be ! ")
-						speaker.speak("YeeY!  You are Happy :smile: today , Always Be ! ")
+						
 						
 					elif prediction == 'Angry':
 						st.subheader("You seem to be angry :rage: today ,Take it easy! ")
-						speaker.speak("You seem to be angry :rage: today ,Take it easy!")
+						
 						
 					elif prediction == 'Disgust':
 						st.subheader("You seem to be Disgust :rage: today! ")
-						speaker.speak("You seem to be Disgust :rage: today!")
+						
 						
 					elif prediction == 'Fear':
 						st.subheader("You seem to be Fearful :fearful: today ,Be couragous! ")
-						speaker.speak("You seem to be Fearful :fearful: today ,Be couragous!")
+						
 						
 					elif prediction == 'Neutral':
 						st.subheader("You seem to be Neutral today ,Happy day! ")
-						speaker.speak("You seem to be Neutral today ,Happy day!")
+						
 						
 						
 					elif prediction == 'Sad':
 						st.subheader("You seem to be Sad :sad: today ,Smile and be happy! ")
-						speaker.speak("You seem to be Sad :sad: today ,Smile and be happy!")
+						
 						
 					elif prediction == 'Surprise':
 						st.subheader("You seem to be surprised today ! ")
-						speaker.speak("You seem to be surprised today ! ")
+						
 						
 					else :
 						st.error("Your image does not match the training dataset's images! Try an other image!")
-						speaker.speak("Your image does not match the training dataset's images! Try an other image!!!")
+						
     
 
 
