@@ -8,7 +8,7 @@ Pillow==9.5.0
 
 tensorflow==2.12.0
 tensorflow_intel
-numpy~=1.21.2
+numpy
 streamlit~=0.87.0
 
 opencv-contrib-python-headless
