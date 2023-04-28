@@ -75,7 +75,9 @@ classifier.load_weights("model/model_weights_78.h5")
 
 # load weights into new model
 # classifier.load_weights("model/emotion_model1.h5")
-
+RTC_CONFIGURATION = RTCConfiguration(
+                 {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+                )
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
@@ -237,9 +239,7 @@ def main():
 		st.write("1. Click Start to open your camera and give permission for prediction")
 		st.write("2. This will predict your emotion.") 
 		st.write("3. When you done, click stop to end.")
-		RTC_CONFIGURATION = RTCConfiguration(
-                 {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-                )
+		
 		webrtc_streamer(key="WYH",mode=WebRtcMode.SENDRECV,rtc_configuration=RTC_CONFIGURATION,media_stream_constraints={"video": True, "audio": False},video_processor_factory=VideoTransformer,async_processing=False)  
 
 	elif choice=="About":
