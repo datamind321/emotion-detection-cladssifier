@@ -75,11 +75,12 @@ classifier.load_weights("model/model_weights_78.h5")
 
 # load weights into new model
 # classifier.load_weights("model/emotion_model1.h5")
-RTC_CONFIGURATION = RTCConfiguration(
-                 {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-                )
+
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
+        RTC_CONFIGURATION = RTCConfiguration(
+                 {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+                )
         img = frame.to_ndarray(format="bgr24")
 
         #image gray
