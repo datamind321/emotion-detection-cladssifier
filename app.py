@@ -79,13 +79,7 @@ def detect_faces(our_image):
 
 
 
-# EMOTIONS_LIST = ["Angry", "Disgust",
-#                      "Fear", "Happy",
-#                      "Neutral", "Sad",
-#                      "Surprise"]
 
-# emotion_dict = {0:'Angry', 1 :'Disgust', 2: 'Fear', 3:'Happy', 4: 'Neutral',5:'Sad',6:'Surprise'}
-# emotion_dict = {0:'angry', 1 :'happy', 2: 'neutral', 3:'sad', 4: 'surprise'}
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise'] 
 
 
@@ -123,9 +117,7 @@ class VideoTransformer(VideoTransformerBase):
 		return img   
 
 
-RTC_CONFIGURATION = RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-) 
+
 	
 
 
@@ -325,8 +317,7 @@ def main():
 				 {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 				) 
 		
-		webrtc_streamer(key="WYH",mode=WebRtcMode.SENDRECV,rtc_configuration=RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}),media_stream_constraints={"video": True, "audio": False},video_processor_factory=VideoTransformer)  
+		webrtc_streamer(key="WYH",mode=WebRtcMode.SENDRECV,rtc_configuration=RTC_CONFIGURATION,media_stream_constraints={"video": True, "audio": False},video_processor_factory=VideoTransformer)  
 
 	elif choice=="About":
 		col1,col2,col3=st.columns(3)
