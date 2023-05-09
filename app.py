@@ -9,31 +9,17 @@ import datetime
 
 from keras.models import load_model,model_from_json 
 
-import time
-from datetime import datetime
-from bokeh.models.widgets import Div
+
+
 from keras.utils import img_to_array
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-import win32com.client
-import pythoncom 
+
 import tempfile 
 
 
-speaker = win32com.client.Dispatch("SAPI.SpVoice",pythoncom.CoInitialize())   
-
-# import joblib 
-# pipe_lr = joblib.load(open("model/emotion_classifier_pipe_lr_03_june_2021.pkl","rb")) 
+  
 
 
-# def predict_emotions_text(docx):
-# 	results = pipe_lr.predict([docx])
-# 	return results[0]
-
-# def get_prediction_proba(docx):
-# 	results = pipe_lr.predict_proba([docx])
-# 	return results 
-
-# emotions_emoji_dict = {"anger":"😠","disgust":"🤮", "fear":"😨😱", "happy":"🤗", "joy":"😂", "neutral":"😐", "sad":"😔", "sadness":"😔", "shame":"😳", "surprise":"😮"}
 
 
 #importing the cnn model+using the CascadeClassifier to use features at once to check if a window is not a face region
@@ -55,17 +41,7 @@ def detect_faces(our_image):
 	i=1
 	
 
-	# # Draw rectangle around the faces
-	# for (x, y, w, h) in faces:
-	# 	cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-	# 	roi_gray = gray[y:y + h, x:x + w]                      #croping
-	# 	cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray, (48, 48)), -1), 0)
-	# 	prediction = classifier.predict(cropped_img)
-
-	# 	maxindex = int(np.argmax(prediction))
-	# 	print("person ",i," : ",emotion_labels[maxindex])
-	# 	cv2.putText(img, emotion_labels[maxindex], (x+10, y-20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2) 
-	# 	return img,prediction,emotion_labels  
+  
 	
 
 
@@ -118,13 +94,7 @@ classifier =load_model('model/model_78.h5')
 # load weights into new model
 classifier.load_weights("model/model_weights_78.h5")
 
-# json_file = open('model/emotion_mode.json', 'r')
-# loaded_model_json = json_file.read()
-# json_file.close()
-# classifier = model_from_json(loaded_model_json)
 
-# load weights into new model
-# classifier.load_weights("model/emotion_model1.h5")
 
 class VideoTransformer(VideoTransformerBase):
 	def transform(self, frame):
@@ -236,36 +206,36 @@ def main():
 
 					if prediction == 'Happy':
 						st.subheader("YeeY!  You are Happy :smile: today , Always Be ! ")
-						speaker.speak("YeeY!  You are Happy :smile: today , Always Be ! ")
+						
 						
 					elif prediction == 'Angry':
 						st.subheader("You seem to be angry :rage: today ,Take it easy! ")
-						speaker.speak("You seem to be angry :rage: today ,Take it easy!")
+						
 						
 					elif prediction == 'Disgust':
 						st.subheader("You seem to be Disgust :rage: today! ")
-						speaker.speak("You seem to be Disgust :rage: today!")
+						
 						
 					elif prediction == 'Fear':
 						st.subheader("You seem to be Fearful :fearful: today ,Be couragous! ")
-						speaker.speak("You seem to be Fearful :fearful: today ,Be couragous!")
+						
 						
 					elif prediction == 'Neutral':
 						st.subheader("You seem to be Neutral today ,Happy day! ")
-						speaker.speak("You seem to be Neutral today ,Happy day!")
+						
 						
 						
 					elif prediction == 'Sad':
 						st.subheader("You seem to be Sad :sad: today ,Smile and be happy! ")
-						speaker.speak("You seem to be Sad :sad: today ,Smile and be happy!")
+						
 						
 					elif prediction == 'Surprise':
 						st.subheader("You seem to be surprised today ! ")
-						speaker.speak("You seem to be surprised today ! ")
+						
 						
 					else :
 						st.error("Your image does not match the training dataset's images! Try an other image!")
-						speaker.speak("Your image does not match the training dataset's images! Try an other image!!!")  
+						 
 
 
 			
