@@ -15,12 +15,11 @@ import time
 
 from keras.utils import img_to_array
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-import win32com.client
-import pythoncom 
+
 import tempfile 
 
 
-speaker = win32com.client.Dispatch("SAPI.SpVoice",pythoncom.CoInitialize())   
+  
 
 
 
