@@ -9,7 +9,7 @@ Pillow==9.5.0
 tensorflow==2.12.0
 tensorflow_intel
 numpy
-streamlit
+streamlit==1.25.0
 altair
 opencv-contrib-python-headless
 tensorflow-cpu
